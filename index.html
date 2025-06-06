@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parsa Vakili - Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#0F52BA", secondary: "#F5F5F5" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+
+      html {
+          scroll-behavior: smooth;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+      }
+
+      .skill-bar {
+          height: 8px;
+          border-radius: 4px;
+          background-color: #e5e7eb;
+          overflow: hidden;
+      }
+
+      .skill-progress {
+          height: 100%;
+          border-radius: 4px;
+          background-color: #0F52BA;
+      }
+
+      .nav-link {
+          position: relative;
+      }
+
+      .nav-link::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -4px;
+          left: 0;
+          background-color: #0F52BA;
+          transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+          width: 100%;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+
+      .project-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .custom-checkbox {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #d1d5db;
+          border-radius: 4px;
+          outline: none;
+          cursor: pointer;
+          position: relative;
+          transition: all 0.2s ease;
+      }
+
+      .custom-checkbox:checked {
+          background-color: #0F52BA;
+          border-color: #0F52BA;
+      }
+
+      .custom-checkbox:checked::after {
+          content: '';
+          position: absolute;
+          top: 3px;
+          left: 6px;
+          width: 6px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-primary">Parsa Vakili</a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="nav-link font-medium hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="nav-link font-medium hover:text-primary transition-colors"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="nav-link font-medium hover:text-primary transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="nav-link font-medium hover:text-primary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#contact"
+            class="nav-link font-medium hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+        >
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+          <a
+            href="#home"
+            class="py-2 font-medium hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="py-2 font-medium hover:text-primary transition-colors"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="py-2 font-medium hover:text-primary transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="py-2 font-medium hover:text-primary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#contact"
+            class="py-2 font-medium hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-24 md:pt-32 pb-16 md:pb-24"
+      style="background-image: url('https://readdy.ai/api/search-image?query=abstract%20modern%20technology%20background%20with%20blue%20gradient%2C%20minimal%20design%2C%20soft%20geometric%20shapes%2C%20professional%20and%20clean%20look%2C%20suitable%20for%20software%20developer%20portfolio%2C%20light%20color%20palette%20with%20white%20space&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;"
+    >
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="w-full md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900"
+            >
+              Parsa Vakili
+            </h1>
+            <h2 class="text-xl md:text-2xl font-semibold mb-6 text-primary">
+              Software Developer
+            </h2>
+            <p class="text-lg mb-8 max-w-lg mx-auto md:mx-0 text-gray-700">
+              Transforming complex problems into elegant solutions through code.
+              Passionate about building innovative software that makes a
+              difference.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            >
+              <a
+                href="#projects"
+                class="px-6 py-3 bg-primary text-white font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all"
+                >View Projects</a
+              >
+              <a
+                href="#contact"
+                class="px-6 py-3 border border-primary text-primary font-medium !rounded-button whitespace-nowrap hover:bg-primary hover:bg-opacity-10 transition-all"
+                >Contact Me</a
+              >
+            </div>
+            <div class="flex mt-8 justify-center md:justify-start space-x-4">
+              <a
+                href="https://www.linkedin.com/in/parsa-vakili-4254a3289/"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+              >
+                <i class="ri-linkedin-fill ri-lg text-gray-700"></i>
+              </a>
+              <a
+                href="https://github.com/"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+              >
+                <i class="ri-github-fill ri-lg text-gray-700"></i>
+              </a>
+              <a
+                href="https://twitter.com/"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+              >
+                <i class="ri-twitter-fill ri-lg text-gray-700"></i>
+              </a>
+              <a
+                href="mailto:parsa.vakili@example.com"
+                class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+              >
+                <i class="ri-mail-fill ri-lg text-gray-700"></i>
+              </a>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+            <div
+              class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl"
+            >
+              <img
+                src="https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20young%20male%20software%20developer%20with%20short%20dark%20hair%2C%20wearing%20a%20smart%20casual%20outfit%2C%20looking%20confident%20and%20approachable%2C%20studio%20lighting%2C%20high%20quality%2C%20professional%20headshot%2C%20neutral%20background%2C%20soft%20lighting&width=800&height=800&seq=portrait1&orientation=squarish"
+                alt="Parsa Vakili"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+          About Me
+        </h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="w-full md:w-2/5">
+            <img
+              src="https://readdy.ai/api/search-image?query=young%20software%20developer%20working%20on%20laptop%20in%20modern%20office%20environment%2C%20focused%20on%20coding%2C%20surrounded%20by%20technology%2C%20professional%20setting%2C%20casual%20smart%20attire%2C%20natural%20lighting%2C%20high%20quality%20image&width=800&height=1000&seq=about1&orientation=portrait"
+              alt="Parsa working"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+          <div class="w-full md:w-3/5">
+            <h3 class="text-2xl font-semibold mb-4">
+              Software Developer based in Tehran, Iran
+            </h3>
+            <p class="text-gray-700 mb-6">
+              I'm a passionate software developer with a strong foundation in
+              computer science and a keen interest in creating efficient,
+              scalable solutions. With expertise in Python, C++, and various
+              frameworks, I approach each project with creativity and analytical
+              thinking.
+            </p>
+
+            <p class="text-gray-700 mb-6">
+              Currently pursuing my Bachelor's degree in Computer Science at the
+              prestigious University of Tehran, I've developed a solid
+              theoretical background while gaining practical experience through
+              various projects and internships.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div>
+                <h4 class="font-semibold mb-2">Education</h4>
+                <p class="text-gray-700">
+                  BSc in Computer Science<br />University of Tehran
+                </p>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Location</h4>
+                <p class="text-gray-700">Tehran, Iran</p>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Languages</h4>
+                <p class="text-gray-700">
+                  Persian (Native)<br />English (Fluent)
+                </p>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Interests</h4>
+                <p class="text-gray-700">
+                  Machine Learning, Web Development, Algorithm Design
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="#contact"
+              class="inline-block px-6 py-3 bg-primary text-white font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all"
+              >Get In Touch</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 md:py-24">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+          My Skills
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Programming Languages -->
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-lg mb-6"
+            >
+              <i class="ri-code-s-slash-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-6">Programming Languages</h3>
+
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Python</span>
+                  <span>95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">C++</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">JavaScript</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Java</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">SQL</span>
+                  <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frameworks & Libraries -->
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-lg mb-6"
+            >
+              <i class="ri-stack-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-6">Frameworks & Libraries</h3>
+
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Django</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">React</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Flask</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">TensorFlow</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Node.js</span>
+                  <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Technologies -->
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div
+              class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-lg mb-6"
+            >
+              <i class="ri-tools-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-6">Tools & Technologies</h3>
+
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Git</span>
+                  <span>95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Docker</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">AWS</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">CI/CD</span>
+                  <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Linux</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">
+          My Projects
+        </h2>
+        <p class="text-gray-700 text-center max-w-2xl mx-auto mb-16">
+          Here are some of my recent projects that showcase my skills and
+          expertise in software development.
+        </p>
+
+        <div class="mb-8">
+          <div class="flex flex-wrap justify-center gap-4">
+            <button
+              id="filter-all"
+              class="px-4 py-2 bg-primary text-white font-medium !rounded-button whitespace-nowrap"
+            >
+              All
+            </button>
+            <button
+              id="filter-web"
+              class="px-4 py-2 bg-white text-gray-700 font-medium !rounded-button whitespace-nowrap hover:bg-gray-100 transition-colors"
+            >
+              Web
+            </button>
+            <button
+              id="filter-ml"
+              class="px-4 py-2 bg-white text-gray-700 font-medium !rounded-button whitespace-nowrap hover:bg-gray-100 transition-colors"
+            >
+              Machine Learning
+            </button>
+            <button
+              id="filter-mobile"
+              class="px-4 py-2 bg-white text-gray-700 font-medium !rounded-button whitespace-nowrap hover:bg-gray-100 transition-colors"
+            >
+              Mobile
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+            data-category="web"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=modern%20e-commerce%20website%20interface%20with%20clean%20design%2C%20showing%20product%20listings%2C%20shopping%20cart%20functionality%2C%20responsive%20layout%2C%20professional%20web%20application%20screenshot&width=600&height=400&seq=project1&orientation=landscape"
+                alt="E-commerce Platform"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+              <p class="text-gray-700 mb-4">
+                A full-featured e-commerce platform with product management,
+                cart functionality, and payment processing.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >MongoDB</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-link ri-sm mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-github-fill ri-sm mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+            data-category="ml"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=machine%20learning%20image%20recognition%20system%20interface%20showing%20data%20visualization%2C%20neural%20network%20diagram%2C%20image%20classification%20results%2C%20professional%20UI%20design&width=600&height=400&seq=project2&orientation=landscape"
+                alt="Image Recognition System"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Image Recognition System
+              </h3>
+              <p class="text-gray-700 mb-4">
+                An AI-powered image recognition system capable of identifying
+                objects and scenes with high accuracy.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >TensorFlow</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >OpenCV</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-link ri-sm mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-github-fill ri-sm mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+            data-category="mobile"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=fitness%20tracking%20mobile%20app%20interface%20showing%20workout%20tracking%2C%20statistics%2C%20progress%20charts%2C%20clean%20mobile%20UI%20design%20on%20smartphone%20screen&width=600&height=400&seq=project3&orientation=landscape"
+                alt="Fitness Tracker App"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Fitness Tracker App</h3>
+              <p class="text-gray-700 mb-4">
+                A mobile application for tracking workouts, nutrition, and
+                fitness progress with personalized recommendations.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >React Native</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Firebase</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Redux</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-link ri-sm mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-github-fill ri-sm mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+            data-category="web"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=task%20management%20dashboard%20with%20kanban%20board%2C%20task%20lists%2C%20calendar%20view%2C%20modern%20web%20application%20interface%2C%20project%20management%20tool%20screenshot&width=600&height=400&seq=project4&orientation=landscape"
+                alt="Task Management System"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Task Management System</h3>
+              <p class="text-gray-700 mb-4">
+                A collaborative task management platform with Kanban boards,
+                task assignments, and progress tracking.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Vue.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Django</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >PostgreSQL</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-link ri-sm mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-github-fill ri-sm mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+            data-category="ml"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=sentiment%20analysis%20dashboard%20showing%20social%20media%20monitoring%2C%20text%20analysis%2C%20sentiment%20charts%20and%20graphs%2C%20data%20visualization%20interface&width=600&height=400&seq=project5&orientation=landscape"
+                alt="Sentiment Analysis Tool"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Sentiment Analysis Tool
+              </h3>
+              <p class="text-gray-700 mb-4">
+                A natural language processing tool that analyzes text data to
+                determine sentiment and emotional tone.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >NLTK</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Flask</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-link ri-sm mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-github-fill ri-sm mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+            data-category="mobile"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=language%20learning%20mobile%20app%20interface%20showing%20vocabulary%20exercises%2C%20progress%20tracking%2C%20gamification%20elements%2C%20clean%20mobile%20UI%20design%20on%20smartphone&width=600&height=400&seq=project6&orientation=landscape"
+                alt="Language Learning App"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Language Learning App</h3>
+              <p class="text-gray-700 mb-4">
+                An interactive mobile application for learning new languages
+                through gamified lessons and exercises.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Flutter</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Dart</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  >Firebase</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-link ri-sm mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-primary hover:underline flex items-center"
+                >
+                  <i class="ri-github-fill ri-sm mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">
+          Get In Touch
+        </h2>
+        <p class="text-gray-700 text-center max-w-2xl mx-auto mb-16">
+          Feel free to contact me for any work or collaboration opportunities.
+          I'm always open to discussing new projects, creative ideas, or
+          opportunities to be part of your vision.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="w-full md:w-1/2">
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label for="name" class="block text-gray-700 font-medium mb-2"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  for="subject"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Subject"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="message"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Your message"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="flex items-center">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  name="consent"
+                  class="custom-checkbox mr-3"
+                  required
+                />
+                <label for="consent" class="text-gray-700"
+                  >I agree to be contacted regarding my message</label
+                >
+              </div>
+
+              <button
+                type="submit"
+                class="w-full px-6 py-3 bg-primary text-white font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <div class="w-full md:w-1/2">
+            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+              <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4"
+                  >
+                    <i class="ri-map-pin-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Location</h4>
+                    <p class="text-gray-700">Tehran, Iran</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4"
+                  >
+                    <i class="ri-mail-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Email</h4>
+                    <a
+                      href="mailto:parsa.vakili@example.com"
+                      class="text-gray-700 hover:text-primary"
+                      >parsa.vakili@example.com</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4"
+                  >
+                    <i class="ri-phone-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Phone</h4>
+                    <p class="text-gray-700">+98 912 345 6789</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4"
+                  >
+                    <i class="ri-linkedin-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">LinkedIn</h4>
+                    <a
+                      href="https://www.linkedin.com/in/parsa-vakili-4254a3289/"
+                      target="_blank"
+                      class="text-gray-700 hover:text-primary"
+                      >linkedin.com/in/parsa-vakili</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <h4 class="font-medium mb-4">Follow Me</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="https://www.linkedin.com/in/parsa-vakili-4254a3289/"
+                    target="_blank"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  >
+                    <i class="ri-linkedin-fill ri-lg text-gray-700"></i>
+                  </a>
+                  <a
+                    href="https://github.com/"
+                    target="_blank"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  >
+                    <i class="ri-github-fill ri-lg text-gray-700"></i>
+                  </a>
+                  <a
+                    href="https://twitter.com/"
+                    target="_blank"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  >
+                    <i class="ri-twitter-fill ri-lg text-gray-700"></i>
+                  </a>
+                  <a
+                    href="https://instagram.com/"
+                    target="_blank"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  >
+                    <i class="ri-instagram-fill ri-lg text-gray-700"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a href="#" class="text-2xl font-bold">Parsa Vakili</a>
+            <p class="mt-2 text-gray-400">Software Developer</p>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-4 mb-6 md:mb-0">
+            <a href="#home" class="hover:text-primary transition-colors"
+              >Home</a
+            >
+            <a href="#about" class="hover:text-primary transition-colors"
+              >About</a
+            >
+            <a href="#skills" class="hover:text-primary transition-colors"
+              >Skills</a
+            >
+            <a href="#projects" class="hover:text-primary transition-colors"
+              >Projects</a
+            >
+            <a href="#contact" class="hover:text-primary transition-colors"
+              >Contact</a
+            >
+          </div>
+
+          <div class="flex space-x-4">
+            <a
+              href="https://www.linkedin.com/in/parsa-vakili-4254a3289/"
+              target="_blank"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <i class="ri-linkedin-fill ri-lg"></i>
+            </a>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <i class="ri-github-fill ri-lg"></i>
+            </a>
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <i class="ri-twitter-fill ri-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400">
+            &copy; 2025 Parsa Vakili. All rights reserved.
+          </p>
+          <p class="text-gray-400 mt-2 md:mt-0">Last updated: June 6, 2025</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300"
+    >
+      <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script id="navigation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          if (mobileMenu.classList.contains("hidden")) {
+            mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+          } else {
+            mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+          }
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+          });
+        });
+
+        // Active link highlighting
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", function () {
+          let current = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (pageYOffset >= sectionTop - 200) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").substring(1) === current) {
+              link.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+
+    <script id="back-to-top-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopButton = document.getElementById("back-to-top");
+
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove("opacity-0", "invisible");
+            backToTopButton.classList.add("opacity-100", "visible");
+          } else {
+            backToTopButton.classList.remove("opacity-100", "visible");
+            backToTopButton.classList.add("opacity-0", "invisible");
+          }
+        });
+
+        backToTopButton.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+
+    <script id="project-filter-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll('[id^="filter-"]');
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Update active button styling
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("bg-primary", "text-white");
+              btn.classList.add("bg-white", "text-gray-700");
+            });
+
+            this.classList.remove("bg-white", "text-gray-700");
+            this.classList.add("bg-primary", "text-white");
+
+            const filter = this.id.replace("filter-", "");
+
+            projectCards.forEach((card) => {
+              if (filter === "all" || card.dataset.category === filter) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+
+    <script id="contact-form-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contact-form");
+
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Simulate form submission
+          const submitButton = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitButton.textContent;
+
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+
+          // Simulate API call
+          setTimeout(() => {
+            // Reset form
+            contactForm.reset();
+
+            // Show success message
+            alert("Thank you for your message! I will get back to you soon.");
+
+            // Reset button
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }, 1500);
+        });
+      });
+    </script>
+  </body>
+</html>
