@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -589,6 +590,26 @@
             color: #1f2937;
         }
         
+        /* Success/Error Messages */
+        .alert {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .alert-success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        
+        .alert-error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -654,22 +675,27 @@
             #home h1 {
                 font-size: 2.2rem;
                 line-height: 1.2;
+                text-align: center;
             }
             
             #home p {
                 font-size: 1rem;
                 padding: 0 10px;
+                text-align: center;
             }
             
             .hero-buttons {
                 flex-direction: column;
                 gap: 15px;
                 width: 100%;
+                align-items: center;
             }
             
             .hero-buttons button {
                 width: 100%;
                 max-width: 280px;
+                text-align: center;
+                justify-content: center;
             }
             
             /* Reduce circuit elements on mobile */
@@ -693,6 +719,7 @@
             .portfolio-filter {
                 gap: 8px;
                 margin-bottom: 30px;
+                justify-content: center;
             }
             
             .filter-btn {
@@ -708,6 +735,8 @@
             
             .skill-item {
                 min-width: 100%;
+                text-align: center;
+                margin: 0 auto;
             }
             
             /* Experience Section */
@@ -719,6 +748,7 @@
             .max-w-4xl.mx-auto .md\:w-1\/2 {
                 width: 100%;
                 padding: 0;
+                text-align: center;
             }
             
             .max-w-4xl.mx-auto .absolute {
@@ -736,6 +766,10 @@
                 gap: 20px;
             }
             
+            .education-item {
+                text-align: center;
+            }
+            
             /* Contact Section */
             .contact-container {
                 grid-template-columns: 1fr;
@@ -744,16 +778,20 @@
             
             .contact-info {
                 order: 2;
+                text-align: center;
+                align-items: center;
             }
             
             .contact-form {
                 order: 1;
+                text-align: center;
             }
             
             .contact-item {
                 flex-direction: column;
                 text-align: center;
                 gap: 10px;
+                justify-content: center;
             }
             
             /* Footer */
@@ -770,6 +808,49 @@
             .flex.flex-col.md\:flex-row.justify-between.items-center {
                 flex-direction: column;
                 gap: 15px;
+                text-align: center;
+            }
+            
+            /* Center all section headings */
+            .text-center h2 {
+                text-align: center;
+            }
+            
+            .text-center p {
+                text-align: center;
+            }
+            
+            /* Center all portfolio items */
+            .portfolio-item {
+                text-align: center;
+            }
+            
+            .portfolio-tags {
+                justify-content: center;
+            }
+            
+            /* Center all skill items */
+            .skills-container {
+                justify-content: center;
+            }
+            
+            /* Center all experience items */
+            .experience-item {
+                text-align: center;
+            }
+            
+            /* Center all education items */
+            .education-item {
+                text-align: center;
+            }
+            
+            /* Center all contact items */
+            .contact-info {
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
             }
         }
         
@@ -784,10 +865,16 @@
             
             .portfolio-item {
                 margin-bottom: 20px;
+                text-align: center;
             }
             
             .contact-form {
                 padding: 20px;
+                text-align: center;
+            }
+            
+            .form-group {
+                text-align: left;
             }
         }
     </style>
@@ -816,9 +903,9 @@
             </button>
             
             <div class="hidden md:block">
-                <button class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap hover-lift">
+                <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap hover-lift">
                     Contact Me
-                </button>
+                </a>
             </div>
         </div>
         
@@ -833,9 +920,9 @@
             <a href="#experience" class="mobile-nav-link">Experience</a>
             <a href="#education" class="mobile-nav-link">Education</a>
             <a href="#contact" class="mobile-nav-link">Contact</a>
-            <button class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap mt-6">
+            <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap mt-6">
                 Contact Me
-            </button>
+            </a>
         </div>
     </header>
 
@@ -848,15 +935,15 @@
                     Hi, I'm <span class="text-secondary">Parsa Vakili</span><br>
                     <span class="text-xl md:text-2xl mt-2 block">Electrical Engineer & Technology Enthusiast</span>
                 </h1>
-                <p class="text-lg text-white/90 mb-10 leading-relaxed max-w-2xl px-4">
+                <p class="text-lg text-white/90 mb-10 leading-relaxed max-w-2xl px-4 text-center">
                     I design and develop innovative electrical systems and software solutions. With expertise in circuit design, embedded systems, and full-stack development, I create technology that makes a difference.
                 </p>
                 <div class="hero-buttons flex items-center justify-center gap-6 flex-wrap">
-                    <button class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 hover:scale-105 transition-all duration-300 whitespace-nowrap flex items-center shadow-lg hover-lift">
+                    <a href="#projects" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 hover:scale-105 transition-all duration-300 whitespace-nowrap flex items-center justify-center shadow-lg hover-lift">
                         View My Projects
                         <i class="ri-arrow-right-down-line ml-2 transition-transform group-hover:translate-x-1"></i>
-                    </button>
-                    <button class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-full flex items-center font-medium transition-all duration-300 whitespace-nowrap hover:scale-105 group h-[50px] hover-lift">
+                    </a>
+                    <button id="downloadResume" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-full flex items-center justify-center font-medium transition-all duration-300 whitespace-nowrap hover:scale-105 group h-[50px] hover-lift">
                         <div class="w-8 h-8 flex items-center justify-center bg-white/20 rounded-full mr-2 group-hover:bg-primary/20">
                             <i class="ri-download-line"></i>
                         </div>
@@ -907,7 +994,7 @@
                         <path d="M2 5.5C47.5 2.5 148.5 2.5 198 5.5" stroke="#2563eb" stroke-width="4" stroke-linecap="round" />
                     </svg>
                 </h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4">Here are some of my recent engineering and development projects that showcase my skills and expertise.</p>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4 text-center">Here are some of my recent engineering and development projects that showcase my skills and expertise.</p>
             </div>
             
             <div class="portfolio-filter fade-in">
@@ -928,7 +1015,7 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>Real-Time Face Recognition System</h3>
-                        <p>Developed a system using Python, OpenCV, and face_recognition library to detect and recognize faces from a live webcam feed.</p>
+                        <p class="text-center">Developed a system using Python, OpenCV, and face_recognition library to detect and recognize faces from a live webcam feed.</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Python</span>
                             <span class="portfolio-tag">OpenCV</span>
@@ -947,7 +1034,7 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>Smart Line Follower Robot</h3>
-                        <p>Designed and built a "Smart Line Follower Robot" featuring PID control for precise movement and integrated obstacle avoidance capabilities.</p>
+                        <p class="text-center">Designed and built a "Smart Line Follower Robot" featuring PID control for precise movement and integrated obstacle avoidance capabilities.</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Embedded Systems</span>
                             <span class="portfolio-tag">PID Control</span>
@@ -965,7 +1052,7 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>Custom Classroom Microphone System</h3>
-                        <p>Designed and built a durable, high-quality, stereo microphone system to solve audio quality issues during online classes.</p>
+                        <p class="text-center">Designed and built a durable, high-quality, stereo microphone system to solve audio quality issues during online classes.</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Audio Systems</span>
                             <span class="portfolio-tag">Product Design</span>
@@ -983,7 +1070,7 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>"Circuit 1" Review Workshop</h3>
-                        <p>Organized and led a workshop for the Electrical Engineering Scientific Association at IUST to help students prepare for their "Circuit 1" course.</p>
+                        <p class="text-center">Organized and led a workshop for the Electrical Engineering Scientific Association at IUST to help students prepare for their "Circuit 1" course.</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Teaching</span>
                             <span class="portfolio-tag">Circuit Analysis</span>
@@ -1001,7 +1088,7 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>Zamzam Company IoT Project</h3>
-                        <p>Led the IoT development for the Zamzam company project during my role as Back End Developer at Fardid team.</p>
+                        <p class="text-center">Led the IoT development for the Zamzam company project during my role as Back End Developer at Fardid team.</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">IoT</span>
                             <span class="portfolio-tag">Django</span>
@@ -1020,7 +1107,7 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>PCB Design Projects</h3>
-                        <p>Various PCB design projects for embedded systems and electronic devices during my role as Electronic Engineer at Metable.</p>
+                        <p class="text-center">Various PCB design projects for embedded systems and electronic devices during my role as Electronic Engineer at Metable.</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">PCB Design</span>
                             <span class="portfolio-tag">Microcontrollers</span>
@@ -1042,7 +1129,7 @@
                         <path d="M2 5.5C47.5 2.5 148.5 2.5 198 5.5" stroke="#2563eb" stroke-width="4" stroke-linecap="round" />
                     </svg>
                 </h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4">I continuously learn and adapt to new technologies to deliver the best engineering solutions.</p>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4 text-center">I continuously learn and adapt to new technologies to deliver the best engineering solutions.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1104,7 +1191,7 @@
                         <path d="M2 5.5C47.5 2.5 148.5 2.5 198 5.5" stroke="#2563eb" stroke-width="4" stroke-linecap="round" />
                     </svg>
                 </h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4">My professional journey in electrical engineering and software development.</p>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4 text-center">My professional journey in electrical engineering and software development.</p>
             </div>
             
             <div class="max-w-4xl mx-auto">
@@ -1115,16 +1202,16 @@
                     <!-- Experience items -->
                     <div class="mb-12 relative fade-in">
                         <div class="flex flex-col md:flex-row items-center">
-                            <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 text-center md:text-right">
                                 <h3 class="text-xl font-bold">Electronic Engineer</h3>
                                 <p class="text-primary font-medium">Metable (Part-time)</p>
                                 <p class="text-gray-600">April 2025 - Present</p>
                                 <p class="text-gray-600">Tehran Province, Iran (On-site)</p>
                             </div>
                             <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 hidden md:block"></div>
-                            <div class="md:w-1/2 md:pl-12">
+                            <div class="md:w-1/2 md:pl-12 text-center md:text-left">
                                 <p class="text-gray-700">Working on PCB design, microcontrollers, embedded systems, digital electronics, and Open CPU projects.</p>
-                                <div class="mt-2 flex flex-wrap gap-2">
+                                <div class="mt-2 flex flex-wrap gap-2 justify-center md:justify-start">
                                     <span class="bg-primary/10 text-primary px-2 py-1 rounded text-sm">PCB Design</span>
                                     <span class="bg-primary/10 text-primary px-2 py-1 rounded text-sm">Microcontrollers</span>
                                     <span class="bg-primary/10 text-primary px-2 py-1 rounded text-sm">Embedded Systems</span>
@@ -1135,15 +1222,15 @@
                     
                     <div class="mb-12 relative fade-in">
                         <div class="flex flex-col md:flex-row items-center">
-                            <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 text-center md:text-right">
                                 <h3 class="text-xl font-bold">Back End Developer</h3>
                                 <p class="text-primary font-medium">Fardid team (Full-time)</p>
                                 <p class="text-gray-600">January 2024 - January 2025 (1 year, 1 month)</p>
                             </div>
                             <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full z-10 hidden md:block"></div>
-                            <div class="md:w-1/2 md:pl-12">
+                            <div class="md:w-1/2 md:pl-12 text-center md:text-left">
                                 <p class="text-gray-700">Led the IoT development for the Zamzam company project. Responsible for back-end development using Django, Django REST Framework, and MySQL.</p>
-                                <div class="mt-2 flex flex-wrap gap-2">
+                                <div class="mt-2 flex flex-wrap gap-2 justify-center md:justify-start">
                                     <span class="bg-primary/10 text-primary px-2 py-1 rounded text-sm">Django</span>
                                     <span class="bg-primary/10 text-primary px-2 py-1 rounded text-sm">Django REST Framework</span>
                                     <span class="bg-primary/10 text-primary px-2 py-1 rounded text-sm">MySQL</span>
@@ -1160,94 +1247,94 @@
                 <h3 class="text-2xl md:text-3xl font-bold text-center mb-12">Teaching & Academic Experience</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
-                        <div class="flex items-start mb-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift experience-item">
+                        <div class="flex items-start mb-4 flex-col md:flex-row">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mb-2 md:mb-0">
                                 <i class="ri-book-open-line text-primary text-xl"></i>
                             </div>
-                            <div>
+                            <div class="text-center md:text-left">
                                 <h4 class="font-bold">Teaching Assistant (Electronic Circuits II)</h4>
                                 <p class="text-primary">Dr. Abouzar Ghaffari</p>
                                 <p class="text-gray-600 text-sm">Iran University of Science and Technology</p>
                                 <p class="text-gray-600 text-sm">September 2025 - Present</p>
                             </div>
                         </div>
-                        <p class="text-gray-700">Assisting students with complex circuit analysis, holding review sessions, and grading assignments.</p>
+                        <p class="text-gray-700 text-center md:text-left">Assisting students with complex circuit analysis, holding review sessions, and grading assignments.</p>
                     </div>
                     
-                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
-                        <div class="flex items-start mb-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift experience-item">
+                        <div class="flex items-start mb-4 flex-col md:flex-row">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mb-2 md:mb-0">
                                 <i class="ri-magnet-line text-primary text-xl"></i>
                             </div>
-                            <div>
+                            <div class="text-center md:text-left">
                                 <h4 class="font-bold">Teaching Assistant (Electromagnetism)</h4>
                                 <p class="text-primary">Dr. A. Nooramin</p>
                                 <p class="text-gray-600 text-sm">Iran University of Science and Technology</p>
                                 <p class="text-gray-600 text-sm">September 2025 - Present</p>
                             </div>
                         </div>
-                        <p class="text-gray-700">Helping students understand core concepts of electromagnetic fields and waves, and providing support during lab sessions.</p>
+                        <p class="text-gray-700 text-center md:text-left">Helping students understand core concepts of electromagnetic fields and waves, and providing support during lab sessions.</p>
                     </div>
                     
-                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
-                        <div class="flex items-start mb-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift experience-item">
+                        <div class="flex items-start mb-4 flex-col md:flex-row">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mb-2 md:mb-0">
                                 <i class="ri-cpu-line text-primary text-xl"></i>
                             </div>
-                            <div>
+                            <div class="text-center md:text-left">
                                 <h4 class="font-bold">Teaching Assistant (Circuits Design)</h4>
                                 <p class="text-primary">Dr. A. Eskandari & Dr. Abdolali Abdipour</p>
                                 <p class="text-gray-600 text-sm">Iran University of Science and Technology</p>
                                 <p class="text-gray-600 text-sm">February 2025 - Present</p>
                             </div>
                         </div>
-                        <p class="text-gray-700">Guiding students through the principles of electronic circuit design and simulation, focusing on practical application and project-based learning.</p>
+                        <p class="text-gray-700 text-center md:text-left">Guiding students through the principles of electronic circuit design and simulation, focusing on practical application and project-based learning.</p>
                     </div>
                     
-                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
-                        <div class="flex items-start mb-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift experience-item">
+                        <div class="flex items-start mb-4 flex-col md:flex-row">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mb-2 md:mb-0">
                                 <i class="ri-code-s-slash-line text-primary text-xl"></i>
                             </div>
-                            <div>
+                            <div class="text-center md:text-left">
                                 <h4 class="font-bold">Teaching Assistant (Advanced Programming)</h4>
                                 <p class="text-primary">M.A. Davoodabadi</p>
                                 <p class="text-gray-600 text-sm">Iran University of Science and Technology</p>
                                 <p class="text-gray-600 text-sm">January 2025 - Present</p>
                             </div>
                         </div>
-                        <p class="text-gray-700">Teaching advanced programming concepts in Python, including data analysis with NumPy and web development with Django.</p>
+                        <p class="text-gray-700 text-center md:text-left">Teaching advanced programming concepts in Python, including data analysis with NumPy and web development with Django.</p>
                     </div>
                     
-                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
-                        <div class="flex items-start mb-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift experience-item">
+                        <div class="flex items-start mb-4 flex-col md:flex-row">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mb-2 md:mb-0">
                                 <i class="ri-code-box-line text-primary text-xl"></i>
                             </div>
-                            <div>
+                            <div class="text-center md:text-left">
                                 <h4 class="font-bold">Teaching Assistant (C++ Programming)</h4>
                                 <p class="text-primary">Dr. A. Rafiei</p>
                                 <p class="text-gray-600 text-sm">Iran University of Science and Technology</p>
                                 <p class="text-gray-600 text-sm">January 2023 - Present</p>
                             </div>
                         </div>
-                        <p class="text-gray-700">Providing foundational and advanced C++ programming support, grading coding assignments, and leading tutorial sessions.</p>
+                        <p class="text-gray-700 text-center md:text-left">Providing foundational and advanced C++ programming support, grading coding assignments, and leading tutorial sessions.</p>
                     </div>
                     
-                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
-                        <div class="flex items-start mb-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover-lift experience-item">
+                        <div class="flex items-start mb-4 flex-col md:flex-row">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mb-2 md:mb-0">
                                 <i class="ri-calculator-line text-primary text-xl"></i>
                             </div>
-                            <div>
+                            <div class="text-center md:text-left">
                                 <h4 class="font-bold">Teaching Assistant (Mathematics)</h4>
                                 <p class="text-primary">Dr. H. Fallah</p>
                                 <p class="text-gray-600 text-sm">Amirkabir University of Technology</p>
                                 <p class="text-gray-600 text-sm">January 2024 - Present</p>
                             </div>
                         </div>
-                        <p class="text-gray-700">Assisting with tutorials and problem-solving sessions for a university-level mathematics course.</p>
+                        <p class="text-gray-700 text-center md:text-left">Assisting with tutorials and problem-solving sessions for a university-level mathematics course.</p>
                     </div>
                 </div>
             </div>
@@ -1264,13 +1351,13 @@
                         <path d="M2 5.5C47.5 2.5 148.5 2.5 198 5.5" stroke="#2563eb" stroke-width="4" stroke-linecap="round" />
                     </svg>
                 </h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4">My academic background in electrical engineering.</p>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4 text-center">My academic background in electrical engineering.</p>
             </div>
             
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md hover-lift fade-in">
-                    <div class="flex items-center mb-4">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                <div class="bg-white p-6 rounded-lg shadow-md hover-lift fade-in education-item">
+                    <div class="flex items-center mb-4 flex-col text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mr-0 mb-4">
                             <i class="ri-graduation-cap-line text-primary text-2xl"></i>
                         </div>
                         <div>
@@ -1278,14 +1365,14 @@
                             <p class="text-primary font-medium">Electrical Engineering</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4">Iran University of Science and Technology</p>
-                    <p class="text-gray-600">Expected Graduation: 2025</p>
-                    <p class="text-gray-600 mt-2">Relevant coursework: Circuit Theory, Digital Systems, Electromagnetics, Power Systems, Control Systems, Electronics, Programming</p>
+                    <p class="text-gray-700 mb-4 text-center">Iran University of Science and Technology</p>
+                    <p class="text-gray-600 text-center">Expected Graduation: 2025</p>
+                    <p class="text-gray-600 mt-2 text-center">Relevant coursework: Circuit Theory, Digital Systems, Electromagnetics, Power Systems, Control Systems, Electronics, Programming</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-md hover-lift fade-in">
-                    <div class="flex items-center mb-4">
-                        <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
+                <div class="bg-white p-6 rounded-lg shadow-md hover-lift fade-in education-item">
+                    <div class="flex items-center mb-4 flex-col text-center">
+                        <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mr-0 mb-4">
                             <i class="ri-award-line text-secondary text-2xl"></i>
                         </div>
                         <div>
@@ -1293,16 +1380,16 @@
                             <p class="text-secondary font-medium">Professional Development</p>
                         </div>
                     </div>
-                    <ul class="text-gray-700 space-y-2">
-                        <li class="flex items-start">
+                    <ul class="text-gray-700 space-y-2 text-center">
+                        <li class="flex items-start justify-center">
                             <i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
                             <span>Selected for 13th Harekat University Festival with Smart Line Follower Robot</span>
                         </li>
-                        <li class="flex items-start">
+                        <li class="flex items-start justify-center">
                             <i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
                             <span>Active Member of Scientific Association of IUST</span>
                         </li>
-                        <li class="flex items-start">
+                        <li class="flex items-start justify-center">
                             <i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
                             <span>Workshop Organizer for Circuit 1 Review</span>
                         </li>
@@ -1322,7 +1409,7 @@
                         <path d="M2 5.5C47.5 2.5 148.5 2.5 198 5.5" stroke="#2563eb" stroke-width="4" stroke-linecap="round" />
                     </svg>
                 </h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4">Interested in collaborating on an engineering project? Let's discuss how we can work together.</p>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4 text-center">Interested in collaborating on an engineering project? Let's discuss how we can work together.</p>
             </div>
             
             <div class="contact-container">
@@ -1343,7 +1430,7 @@
                         </div>
                         <div>
                             <h3>Email</h3>
-                            <p>parsa.vakili@example.com</p>
+                            <p>parsa.vakili84@gmail.com</p>
                         </div>
                     </div>
                     
@@ -1353,27 +1440,36 @@
                         </div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+98 (912) 345-6789</p>
+                            <p>+98 920 700 3894</p>
+                            <p>+98 914 4020 676</p>
                         </div>
                     </div>
                     
-                    <div class="social-links flex gap-4 mt-6 footer-links">
-                        <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="ri-send-plane-line"></i>
+                        </div>
+                        <div>
+                            <h3>Telegram</h3>
+                            <p>@parsavakili</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links flex gap-4 mt-6 justify-center">
+                        <a href="https://ir.linkedin.com/in/parsa-vakili-4254a3289" target="_blank" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
                             <i class="ri-linkedin-fill ri-lg"></i>
                         </a>
-                        <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                            <i class="ri-github-fill ri-lg"></i>
+                        <a href="https://t.me/parsavakili" target="_blank" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-send-plane-fill ri-lg"></i>
                         </a>
-                        <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                            <i class="ri-twitter-fill ri-lg"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                            <i class="ri-file-text-line ri-lg"></i>
+                        <a href="mailto:parsa.vakili84@gmail.com" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-mail-fill ri-lg"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div class="contact-form fade-in">
+                    <div id="formMessage" class="hidden"></div>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -1395,7 +1491,7 @@
                             <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition duration-300 hover-lift">Send Message</button>
+                        <button type="submit" id="submitBtn" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition duration-300 hover-lift">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1406,35 +1502,30 @@
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div>
+                <div class="text-center md:text-left">
                     <a href="#" class="text-2xl font-['Pacifico'] text-primary mb-4 inline-block">Parsa Vakili</a>
                     <p class="text-gray-400 mb-4">
                         Electrical Engineer creating innovative solutions through technology and engineering.
                     </p>
-                    <div class="flex space-x-4 footer-links">
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="https://ir.linkedin.com/in/parsa-vakili-4254a3289" target="_blank" class="text-gray-400 hover:text-primary transition-colors">
                             <div class="w-10 h-10 flex items-center justify-center">
                                 <i class="ri-linkedin-fill ri-lg"></i>
                             </div>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <a href="https://t.me/parsavakili" target="_blank" class="text-gray-400 hover:text-primary transition-colors">
                             <div class="w-10 h-10 flex items-center justify-center">
-                                <i class="ri-github-fill ri-lg"></i>
+                                <i class="ri-send-plane-fill ri-lg"></i>
                             </div>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <a href="mailto:parsa.vakili84@gmail.com" class="text-gray-400 hover:text-primary transition-colors">
                             <div class="w-10 h-10 flex items-center justify-center">
-                                <i class="ri-twitter-fill ri-lg"></i>
-                            </div>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                            <div class="w-10 h-10 flex items-center justify-center">
-                                <i class="ri-file-text-line ri-lg"></i>
+                                <i class="ri-mail-fill ri-lg"></i>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
                     <ul class="space-y-3">
                         <li>
@@ -1453,7 +1544,7 @@
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <h3 class="font-semibold text-lg mb-4">Expertise</h3>
                     <ul class="space-y-3">
                         <li>
@@ -1473,29 +1564,28 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="font-semibold text-lg mb-4">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">
-                        Subscribe to get updates on my latest projects and engineering insights.
+                <div class="text-center md:text-left">
+                    <h3 class="font-semibold text-lg mb-4">Contact Info</h3>
+                    <p class="text-gray-400 mb-2">
+                        <i class="ri-phone-line mr-2"></i> +98 920 700 3894
                     </p>
-                    <div class="flex">
-                        <input
-                            type="email"
-                            placeholder="Your email address"
-                            class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-button focus:outline-none focus:ring-2 focus:ring-primary/50 w-full text-white"
-                        />
-                        <button class="bg-primary text-white px-4 py-2 rounded-r-button whitespace-nowrap hover:bg-blue-700 transition-colors">
-                            Subscribe
-                        </button>
-                    </div>
+                    <p class="text-gray-400 mb-2">
+                        <i class="ri-phone-line mr-2"></i> +98 914 4020 676
+                    </p>
+                    <p class="text-gray-400 mb-2">
+                        <i class="ri-mail-line mr-2"></i> parsa.vakili84@gmail.com
+                    </p>
+                    <p class="text-gray-400">
+                        <i class="ri-send-plane-line mr-2"></i> @parsavakili
+                    </p>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center">
                     <p class="text-gray-400 text-sm mb-4 md:mb-0">
                         © 2025 Parsa Vakili. All Rights Reserved.
                     </p>
-                    <div class="flex space-x-6">
+                    <div class="flex space-x-6 justify-center">
                         <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Terms of Service</a>
                         <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Privacy Policy</a>
                     </div>
@@ -1505,6 +1595,11 @@
     </footer>
 
     <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("0hdGdsW9YngoOZgo2"); // Replace with your EmailJS public key
+        })();
+
         document.addEventListener('DOMContentLoaded', function() {
             // Header scroll effect
             const header = document.querySelector('header');
@@ -1583,13 +1678,60 @@
             
             // Form submission
             const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    // Add your form submission logic here
-                    alert('Thank you for your message! I will get back to you soon.');
-                    this.reset();
+                    
+                    // Show loading state
+                    submitBtn.innerHTML = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Get form data
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // Send email using EmailJS
+                    emailjs.send('service_a1tr3ed', 'template_hd613gm', formData) // Replace with your EmailJS service ID and template ID
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            showMessage('Your message has been sent successfully! I will get back to you soon.', 'success');
+                            contactForm.reset();
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            showMessage('Sorry, there was an error sending your message. Please try again or contact me directly at parsa.vakili84@gmail.com', 'error');
+                        })
+                        .finally(function() {
+                            // Reset button state
+                            submitBtn.innerHTML = 'Send Message';
+                            submitBtn.disabled = false;
+                        });
                 });
+            }
+            
+            // Show message function
+            function showMessage(message, type) {
+                formMessage.textContent = message;
+                formMessage.className = 'alert';
+                
+                if (type === 'success') {
+                    formMessage.classList.add('alert-success');
+                } else if (type === 'error') {
+                    formMessage.classList.add('alert-error');
+                }
+                
+                formMessage.classList.remove('hidden');
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
             }
             
             // Mobile menu functionality
@@ -1611,6 +1753,20 @@
                     mobileMenu.classList.remove('active');
                 }
             });
+            
+            // Resume download functionality
+            const downloadResumeBtn = document.getElementById('downloadResume');
+            if (downloadResumeBtn) {
+                downloadResumeBtn.addEventListener('click', function() {
+                    // Create a temporary link to trigger download
+                    const link = document.createElement('a');
+                    link.href = 'Parsa_Vakili_Resume.pdf'; // Replace with actual resume file path
+                    link.download = 'Parsa_Vakili_Resume.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+            }
         });
     </script>
 </body>
